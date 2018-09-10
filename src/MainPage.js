@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Book from './Book'
 import './App.css';
-import * as BooksAPI from './BooksAPI'
+import Book from './Book';
 
 
 class MainPage extends Component {
