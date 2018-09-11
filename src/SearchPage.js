@@ -23,23 +23,24 @@ class SearchPage extends Component {
   updateSearchedBooks = (query) => {
     if (query) {
     BooksAPI.search(query).then((searchedBooks) => {
-      this.setState({ searchedBooks: searchedBooks })
-    })
-  } 
-  else {
+      if (searchedBooks.error){
+        this.setState({ searchedBooks: []});
+              } else {
+        this.setState({ searchedBooks: searchedBooks });
+    }
+  })
+  } else {
     this.setState({ searchedBooks: []});
-   }
-  }
+       }
+    }
+
     render (){
       
         return(
             <div className="search-books">
             <div className="search-books-bar">
-              <a className="close-search" onClick={() => 
-                this.setState({ showSearchPage: false })}>Close</a>
-             
+              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
               <div className="search-books-input-wrapper">
-                
                 <input type="text" 
                 placeholder="Search by title or author"
                 value={this.state.query}
