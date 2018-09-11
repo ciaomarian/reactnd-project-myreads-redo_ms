@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Link, Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
+import './App.css';
 
 class Book extends Component {
     render() {
@@ -9,10 +8,15 @@ class Book extends Component {
                 <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={
-                              { width: 128, height: 192, backgroundImage: 
-                              'url("${this.props.book.imageLinks.thumbnail}"' }}></div>
+                              { width: 128, height: 193, backgroundImage: 
+                              'url("${this.props.book.imageLinks.thumbnail}"'}}></div>
                             <div className="book-shelf-changer">
-                              <select>
+                              <select
+                              onChange = {(event) => 
+                                  this.props.moveShelf(
+                                    this.props.book, event.target.value)
+                                  }
+                                 >
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
@@ -22,13 +26,12 @@ class Book extends Component {
                             </div>
                           </div>
                           < div className = "book-title" > {
-                            this.props.book.title
-                          } < /div>
+                            this.props.book.title} </div>
                           < div className = "book-authors" > {
                             this.props.book.authors
-                          } < /div>
+                          } </div>
                         </div>
             );
-       };
+       }
        }
 export default Book;
