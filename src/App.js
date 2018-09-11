@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link, Route } from 'react-router-dom';
 import SearchPage from './SearchPage';
-import * as BooksAPI from './BooksAPI'
 import MainPage from './MainPage';
+import * as BooksAPI from './BooksAPI';
 import './App.css';
 
-//import { Link, Route } from 'react-router-dom'
-//import Book from './Book'
+//import Book from './Book';
 
 
 
@@ -24,21 +24,27 @@ class Book extends React.Component {
     BooksAPI.update(book, shelf);
 
     BooksAPI.getAll().then((books) => {
-      this.setState({
-        books: books
-      })
+      this.setState({books: books})
     })
   }
 
   render() {
     return (
       <div className = "app">
-      <MainPage books = {this.state.books}
+      <Route exact path ="/" render={() => (
+      <MainPage
+      books = {this.state.books}
       moveShelf = {this.moveShelf}
       /> 
+      )} />    
 
-      </div>
-      )
-    }
+      <Route exact path ="/search" render={() => (
+      <SearchPage 
+      moveShelf = {this.moveShelf}
+      />
+    )} />
+    </div>
+    )
+  }
   }
   export default Book;
