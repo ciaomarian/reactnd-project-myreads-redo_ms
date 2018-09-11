@@ -47,9 +47,7 @@ class SearchPage extends Component {
                 onChange={(event) => this.updateQuery(event.target.value)}
                  />
               </div>
-
             </div>
-
 
             <div className="search-books-results">
 
@@ -59,6 +57,7 @@ class SearchPage extends Component {
                   <li key = {searchedBook.id}>
                   <Book
                   book= {searchedBook}
+                  moveShelf = {this.props.moveShelf}
                   />
                   </li>
                   ))

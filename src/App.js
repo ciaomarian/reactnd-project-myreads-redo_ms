@@ -10,34 +10,35 @@ import './App.css';
 
 
 class Book extends React.Component {
-    state = {
-      books: []
-    }
-    componentDidMount() {
-      BooksAPI.getAll().then((books) => {
-        this.setState ({ books: books })
+  state = {
+    books: []
+  }
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({
+        books: books
       })
-    }
-moveShelf = (book, shelf) => {
-  BooksAPI.update(book, shelf);
+    })
+  }
+  moveShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
 
-  BooksAPI.getAll().then((books) => {
-        this.setState({ books: books})
- })
-}
+    BooksAPI.getAll().then((books) => {
+      this.setState({
+        books: books
+      })
+    })
+  }
 
   render() {
     return (
-      <div className="app">
+      <div className = "app">
+      <MainPage books = {this.state.books}
+      moveShelf = {this.moveShelf}
+      /> 
 
-      { /*  <MainPage
-      books = {this.state.books}
-      moveShelf={this.moveShelf}
-    /> */}
-   
-    < SearchPage />
       </div>
-    )
+      )
+    }
   }
-}
-export default Book;
+  export default Book;
