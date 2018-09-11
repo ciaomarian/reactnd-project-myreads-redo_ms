@@ -6,7 +6,7 @@
 This project was created with React JS using Components, JSX, AJAX, and JavaScript(ECMAScript) 6.
 
 
-To install thi sproject on your local machine:
+To install this project on your local machine:
 1. Install node .js, which comes with npm (package manager).
 2. Install React from your terminal using command line: npm install -g create-react-app.
 3. Download or clone the project repository from GitHub.
