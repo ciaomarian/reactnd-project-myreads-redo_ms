@@ -9,7 +9,6 @@ import './App.css';
 
 
 
-
 class Book extends React.Component {
     state = {
       books: []
@@ -30,10 +29,11 @@ moveShelf = (book, shelf) => {
   render() {
     return (
       <div className="app">
-      <MainPage
+{ /*}*/ }
+     <MainPage
       books = {this.state.books}
       moveShelf={this.moveShelf}
-      />
+    /> 
       </div>
     )
   }

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import SearchPage from './SearchPage'
 import './App.css';
 import Book from './Book';
 
