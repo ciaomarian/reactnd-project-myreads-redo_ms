@@ -1,20 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import SearchPage from './SearchPage'
 import './App.css';
-import BookShelves from './BookShelves';
+import Book from './Book';
 
 
 class MainPage extends Component {
  render() {
-    return(
-    
-    <div className="list-books">
-        <div className="list-books-title">
-          <h1>MyReads</h1>
+         return(
+             <div className="list-books">
+            <div className="list-books-title">
+              <h1>MyReads</h1>
             </div>
-
-          { /* 
-            < div className = "list-books-content" >
+            <div className="list-books-content">
               <div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>
@@ -24,16 +22,19 @@ class MainPage extends Component {
                       this.props.books
                       .filter(book => book.shelf === 'currentlyReading')
                       .map(book =>
-                        <li key = {book.id}>< Book book = {book} 
-                          moveShelf = {this.props.moveShelf}
+                        <li key = {book.id}>
+                        < Book book={book} 
+                        moveShelf = {
+                          this.props.moveShelf
+                        }
                         currentShelf = 'currentlyReading'
                         />
-                      </li>)
-                      }
+                      </li>
+                      )
+                    }
                     </ol>
                   </div>
                 </div>
-
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
@@ -49,8 +50,10 @@ class MainPage extends Component {
                         }
                         currentShelf = 'wantToRead'
                         />
-                      </li>)
-                    }                     
+                      </li>
+                      )
+                    }
+                      
                     </ol>
                   </div>
                 </div>
@@ -68,21 +71,20 @@ class MainPage extends Component {
                           this.props.moveShelf}
                         currentShelf = 'read'
                         />
-                      </li>)
-                      }
+                      </li>
+                      )
+                    }
                     </ol>
                   </div>
                 </div>
-              </div> 
-              */
-              }
-
+              </div>
+            </div>
             <div className="open-search">
             <Link
             to="/search"
             >Add a book</Link>
             </div>
-      </div>
+          </div>
     );
  }
 }

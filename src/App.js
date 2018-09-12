@@ -2,14 +2,13 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import SearchPage from './SearchPage';
 import MainPage from './MainPage';
-import BookShelves from './BookShelves';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
 //import Book from './Book';
 
 
-class App extends React.Component {
+class Book extends React.Component {
   state = {
     books: []
   }
@@ -48,4 +47,4 @@ class App extends React.Component {
     )
   }
   }
-  export default App;
+  export default Book;
