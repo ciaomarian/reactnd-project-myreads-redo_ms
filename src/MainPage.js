@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import BookShelves from './BookShelves'
 import './App.css';
 
 
@@ -10,6 +11,13 @@ class MainPage extends Component {
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
+            {< BookShelves books = {
+              this.props.books
+            }
+            moveShelf = {
+              this.props.moveShelf
+            }
+            />}
 
  {/* <div className="list-books-content">
               <div>
@@ -85,6 +93,7 @@ class MainPage extends Component {
             >Add a book</Link>
             </div>
           </div>
+  
     );
  }
 }

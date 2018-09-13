@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import * as BooksAPI from './BooksAPI';
 import SearchPage from './SearchPage';
 import MainPage from './MainPage';
-import * as BooksAPI from './BooksAPI';
 import './App.css';
 
 //import Book from './Book';
@@ -13,12 +13,15 @@ class Book extends React.Component {
     books: []
   }
   componentDidMount() {
+    
+// get books on load
     BooksAPI.getAll().then((books) => {
       this.setState({
         books: books
       })
     })
   }
+
   moveShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);
 
@@ -28,6 +31,8 @@ class Book extends React.Component {
   }
 
   render() {
+
+    
     return (
       <div className = "app">
       <Route exact path ="/" render={() => (
