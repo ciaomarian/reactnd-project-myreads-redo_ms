@@ -4,17 +4,14 @@ import Book from './Book'
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
-
-
 class SearchPage extends Component {
   state = {
     query:'',
     searchedBooks:[]
   }
+
   updateQuery = (query) => {
-    this.setState({
-      query : query
-    })
+    this.setState({query : query})
     this.updateSearchedBooks(query);
   }
 
@@ -37,10 +34,7 @@ class SearchPage extends Component {
         return(
             <div className="search-books">
             <div className="search-books-bar">
-              <Link 
-              to="/"
-              className="close-search">Close</Link>
-
+              <Link to="/"className="close-search">Close</Link>
               <div className="search-books-input-wrapper">
                 <input type="text" 
                 placeholder="Search by title or author"
@@ -70,7 +64,7 @@ class SearchPage extends Component {
                   currentShelf = {shelf}
                   />
                   </li>
-                  )
+                  );
                 })
                 }
                 </ol>
